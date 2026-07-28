@@ -3,7 +3,7 @@ import {
   "moonbitlang/core/array",
   "moonbitlang/core/debug",
   "moonbitlang/core/test",
-  "moonbitlang/core/quickcheck",
+  "moonbitlang/core/quickcheck/arbitrary" @quickcheck,
 }
 
 import {

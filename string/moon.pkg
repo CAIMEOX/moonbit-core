@@ -13,7 +13,7 @@ import {
 import {
   "moonbitlang/core/list",
   "moonbitlang/core/json",
-  "moonbitlang/core/quickcheck",
+  "moonbitlang/core/quickcheck/arbitrary" @quickcheck,
   "moonbitlang/core/encoding/utf8",
   "moonbitlang/core/encoding/utf16",
   "moonbitlang/core/bench",

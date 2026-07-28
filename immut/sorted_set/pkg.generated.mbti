@@ -4,7 +4,7 @@ package "moonbitlang/core/immut/sorted_set"
 import {
   "moonbitlang/core/debug",
   "moonbitlang/core/json",
-  "moonbitlang/core/quickcheck",
+  "moonbitlang/core/quickcheck/arbitrary",
   "moonbitlang/core/quickcheck/splitmix",
 }
 
@@ -78,7 +78,7 @@ pub impl[A : Compare] Sub for SortedSet[A]
 pub impl[A : ToJson] ToJson for SortedSet[A]
 pub impl[K : @debug.Debug] @debug.Debug for SortedSet[K]
 pub impl[A : @json.FromJson + Compare] @json.FromJson for SortedSet[A]
-pub impl[X : @quickcheck.Arbitrary + Compare] @quickcheck.Arbitrary for SortedSet[X]
+pub impl[X : @arbitrary.Arbitrary + Compare] @arbitrary.Arbitrary for SortedSet[X]
 
 // Type aliases
 

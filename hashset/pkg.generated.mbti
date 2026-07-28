@@ -3,7 +3,7 @@ package "moonbitlang/core/hashset"
 
 import {
   "moonbitlang/core/debug",
-  "moonbitlang/core/quickcheck",
+  "moonbitlang/core/quickcheck/arbitrary",
   "moonbitlang/core/quickcheck/splitmix",
 }
 
@@ -64,7 +64,7 @@ pub impl[K : Show] Show for HashSet[K]
 pub impl[K : Hash + Eq] Sub for HashSet[K]
 pub impl[X : ToJson] ToJson for HashSet[X]
 pub impl[K : @debug.Debug] @debug.Debug for HashSet[K]
-pub impl[X : @quickcheck.Arbitrary + Eq + Hash] @quickcheck.Arbitrary for HashSet[X]
+pub impl[X : @arbitrary.Arbitrary + Eq + Hash] @arbitrary.Arbitrary for HashSet[X]
 
 // Type aliases
 

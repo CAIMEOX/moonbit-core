@@ -13,9 +13,9 @@
 // limitations under the License.
 
 ///|
-/// Trait for types that can be randomly generated
+/// Trait for values that can be randomly generated.
 pub(open) trait Arbitrary {
-  // `arbitrary` function takes a random number generator and a number that 
+  // `arbitrary` function takes a random number generator and a number that
   // determines the size of the generated value as arguments, and returns a
   // randomly generated value of certain type.
   fn arbitrary(Int, @splitmix.RandomState) -> Self

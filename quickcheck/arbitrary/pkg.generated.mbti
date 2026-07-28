@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "moonbitlang/core/quickcheck"
+package "moonbitlang/core/quickcheck/arbitrary"
 
 import {
   "moonbitlang/core/quickcheck/splitmix",

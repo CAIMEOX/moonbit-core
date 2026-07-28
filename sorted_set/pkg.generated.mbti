@@ -3,7 +3,7 @@ package "moonbitlang/core/sorted_set"
 
 import {
   "moonbitlang/core/debug",
-  "moonbitlang/core/quickcheck",
+  "moonbitlang/core/quickcheck/arbitrary",
   "moonbitlang/core/quickcheck/splitmix",
 }
 
@@ -56,7 +56,7 @@ pub impl[V : Eq] Eq for SortedSet[V]
 #deprecated
 pub impl[V : Show] Show for SortedSet[V]
 pub impl[V : @debug.Debug] @debug.Debug for SortedSet[V]
-pub impl[X : @quickcheck.Arbitrary + Compare] @quickcheck.Arbitrary for SortedSet[X]
+pub impl[X : @arbitrary.Arbitrary + Compare] @arbitrary.Arbitrary for SortedSet[X]
 
 // Type aliases
 

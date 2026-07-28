@@ -9,13 +9,13 @@ Generate random values of any type that implements the `Arbitrary` trait:
 ```mbt check
 ///|
 test "basic generation" {
-  let b : Bool = @quickcheck.gen()
+  let b : Bool = @arbitrary.gen()
   inspect(b, content="true")
-  let x : Int = @quickcheck.gen()
+  let x : Int = @arbitrary.gen()
   inspect(x, content="0")
 
   // Generate with size parameter
-  let sized : Array[Int] = @quickcheck.gen(size=5)
+  let sized : Array[Int] = @arbitrary.gen(size=5)
   inspect(sized.length() <= 5, content="true")
 }
 ```
@@ -27,9 +27,9 @@ Generate multiple test cases using the `samples` function:
 ```mbt check
 ///|
 test "multiple samples" {
-  let ints : Array[Int] = @quickcheck.samples(5)
+  let ints : Array[Int] = @arbitrary.samples(5)
   debug_inspect(ints, content="[0, 0, 0, -1, -1]")
-  let strings : Array[String] = @quickcheck.samples(12)
+  let strings : Array[String] = @arbitrary.samples(12)
   debug_inspect(
     strings[5:10],
     content=(
@@ -47,7 +47,7 @@ QuickCheck provides `Arbitrary` implementations for all basic MoonBit types:
 ///|
 test "builtin types" {
   // Basic types
-  let v : (Bool, Char, Byte) = @quickcheck.gen()
+  let v : (Bool, Char, Byte) = @arbitrary.gen()
   debug_inspect(
     v,
     content=(
@@ -55,13 +55,13 @@ test "builtin types" {
     ),
   )
   // Numeric types
-  let v : (Int, Int64, UInt, UInt64, Float, Double, BigInt) = @quickcheck.gen()
+  let v : (Int, Int64, UInt, UInt64, Float, Double, BigInt) = @arbitrary.gen()
   debug_inspect(
     v,
     content="(0, 0, 0, 0, 0.23986786603927612, 0.7917029935679342, 0)",
   )
   // Collections
-  let v : (String, Bytes, Iter[Int]) = @quickcheck.gen()
+  let v : (String, Bytes, Iter[Int]) = @arbitrary.gen()
   let (s, b, iter) = v
   debug_inspect(
     (s, b, iter.to_array()),
@@ -86,20 +86,20 @@ priv struct Point {
 ///|
 impl Arbitrary for Point with fn arbitrary(size, r0) {
   let r1 = r0.split()
-  let y = @quickcheck.Arbitrary::arbitrary(size, r1)
-  { x: @quickcheck.Arbitrary::arbitrary(size, r0), y }
+  let y = @arbitrary.Arbitrary::arbitrary(size, r1)
+  { x: @arbitrary.Arbitrary::arbitrary(size, r0), y }
 }
 
 ///|
 test "custom type generation" {
-  let point : Point = @quickcheck.gen()
+  let point : Point = @arbitrary.gen()
   debug_inspect(
     point,
     content=(
       #|{ x: 0, y: 0 }
     ),
   )
-  let points : Array[Point] = @quickcheck.samples(10)
+  let points : Array[Point] = @arbitrary.samples(10)
   debug_inspect(
     points[6:],
     content=(

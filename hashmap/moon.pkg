@@ -4,7 +4,7 @@ import {
   "moonbitlang/core/debug",
   "moonbitlang/core/test",
   "moonbitlang/core/tuple",
-  "moonbitlang/core/quickcheck",
+  "moonbitlang/core/quickcheck/arbitrary" @quickcheck,
   "moonbitlang/core/int",
 }
 

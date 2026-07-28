@@ -3,7 +3,7 @@ package "moonbitlang/core/ref"
 
 import {
   "moonbitlang/core/debug",
-  "moonbitlang/core/quickcheck",
+  "moonbitlang/core/quickcheck/arbitrary",
   "moonbitlang/core/quickcheck/splitmix",
 }
 
@@ -26,7 +26,7 @@ pub fn[T] Ref::update(Self[T], (T) -> T raise?) -> Unit raise?
 #deprecated
 pub impl[X : Show] Show for Ref[X]
 pub impl[T : @debug.Debug] @debug.Debug for Ref[T]
-pub impl[X : @quickcheck.Arbitrary] @quickcheck.Arbitrary for Ref[X]
+pub impl[X : @arbitrary.Arbitrary] @arbitrary.Arbitrary for Ref[X]
 
 // Type aliases
 

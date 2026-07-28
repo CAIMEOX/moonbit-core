@@ -4,7 +4,7 @@ import {
   "moonbitlang/core/error",
   "moonbitlang/core/uint",
   "moonbitlang/core/json",
-  "moonbitlang/core/quickcheck",
+  "moonbitlang/core/quickcheck/arbitrary" @quickcheck,
   "moonbitlang/core/quickcheck/splitmix",
   "moonbitlang/core/int16",
   "moonbitlang/core/uint16",
